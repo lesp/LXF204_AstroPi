@@ -8,7 +8,14 @@ sense = SenseHat()
 sense.show_message("READY",text_colour=[0,255,0])
 
 pygame.init()
-pygame.display.set_mode((640,480))
+pygame.display.set_mode((688,361))
+
+def image():
+    pygame.display.set_caption("Linux Format presents...")
+    picture = pygame.image.load("image.png")
+    screen = pygame.display.set_mode((688,361))
+    screen.blit(picture,(0,0))
+    pygame.display.flip()
 
 def joystick(event):
     if event.key == pygame.K_DOWN:
@@ -56,6 +63,7 @@ def invader():
         x = [255,0,0]
 
 sense.low_light = True
+image()
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
