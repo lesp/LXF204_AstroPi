@@ -22,7 +22,12 @@ def joystick(event):
 
 def temperature():
     temp = round(sense.get_temperature(),1)
-    sense.show_message("The temperature is %s C" % temp)
+    if temp < 20:
+        sense.show_message("The temperature is %s C" % temp, text_colour=[0,0,255])
+    elif temp > 20 and temp < 30:
+        sense.show_message("The temperature is %s C" % temp, text_colour=[0,255,0])
+    else:
+        sense.show_message("The temperature is %s C" % temp, text_colour=[255,0,0])
 
 def humidity():
     humid = round(sense.get_humidity(),1)
@@ -34,7 +39,7 @@ def pressure():
 
 def invader():
     x = [0,255,0]
-    for i in range(3):
+    for i in range(2):
         o = [0,0,0]
         invader = [
             o,x,o,o,o,o,x,o,
