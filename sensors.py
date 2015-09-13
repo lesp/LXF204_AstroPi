@@ -5,8 +5,6 @@ import time
 
 sense = SenseHat()
 
-sense.show_message("READY",text_colour=[0,255,0])
-
 pygame.init()
 pygame.display.set_mode((688,361))
 
@@ -71,13 +69,19 @@ def invader():
             x,x,o,o,o,o,x,x,
         ]
         sense.set_pixels(invader)
-        time.sleep(0.5)        
+        time.sleep(0.5)
+    sense.clear()    
 
 sense.low_light = True
 image()
+sense.clear()
+sense.show_message("READY",text_colour=[0,255,0])
 while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            break
-        if event.type == KEYDOWN:
-            joystick(event)
+    try:       
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+            if event.type == KEYDOWN:
+                joystick(event)
+    except KeyboardInterrupt:
+        pygame.quit()
