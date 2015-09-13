@@ -45,8 +45,8 @@ def pressure():
     sense.show_message("Pressure %s Millibars" % pressure)
 
 def invader():
-    x = [0,255,0]
-    for i in range(2):
+    for i in range(8):
+        x = [0,255,0]
         o = [0,0,0]
         invader = [
             o,x,o,o,o,o,x,o,
@@ -59,8 +59,19 @@ def invader():
             o,o,x,x,x,x,o,o,
         ]
         sense.set_pixels(invader)
-        time.sleep(2)
-        x = [255,0,0]
+        time.sleep(0.5)
+        invader = [
+            o,o,o,o,o,o,o,o,
+            o,x,x,o,o,x,x,o,
+            o,x,x,x,x,x,x,o,
+            x,o,x,x,x,x,o,x,
+            x,x,x,x,x,x,x,x,
+            x,o,x,x,x,x,o,x,
+            x,o,x,o,o,x,o,x,
+            x,x,o,o,o,o,x,x,
+        ]
+        sense.set_pixels(invader)
+        time.sleep(0.5)        
 
 sense.low_light = True
 image()
