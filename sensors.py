@@ -7,7 +7,6 @@ import time
 sense = SenseHat()
 
 pygame.init()
-pygame.display.set_mode((688,361))
 
 def image():
     pygame.display.set_caption("Linux Format presents...")
